@@ -8,9 +8,10 @@ interface StatProps {
   suffix?: string;
   prefix?: string;
   duration?: number;
+  label2?: string;  // Added this property to fix the type error
 }
 
-const AnimatedStat = ({ label, value, suffix = '', prefix = '', duration = 1500 }: StatProps) => {
+const AnimatedStat = ({ label, label2, value, suffix = '', prefix = '', duration = 1500 }: StatProps) => {
   const [count, setCount] = useState(0);
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -47,6 +48,7 @@ const AnimatedStat = ({ label, value, suffix = '', prefix = '', duration = 1500 
         {prefix}{Math.round(count)}{suffix}
       </div>
       <div className="text-gray-600">{label}</div>
+      {label2 && <div className="text-gray-500 text-sm">{label2}</div>}
     </div>
   );
 };
