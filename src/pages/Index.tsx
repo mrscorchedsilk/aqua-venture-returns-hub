@@ -2,9 +2,11 @@
 import React from 'react';
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import AnimatedStats from "@/components/AnimatedStats";
 import InvestmentBreakdown from "@/components/InvestmentBreakdown";
 import LocationAdvantage from "@/components/LocationAdvantage";
 import FishComparison from "@/components/FishComparison";
+import ProjectedReturnSlider from "@/components/ProjectedReturnSlider";
 import InvestmentComparison from "@/components/InvestmentComparison";
 import CompanyAdvantage from "@/components/CompanyAdvantage";
 import ReturnCalculator from "@/components/ReturnCalculator";
@@ -19,9 +21,11 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
+        <AnimatedStats />
         <InvestmentBreakdown />
         <LocationAdvantage />
         <FishComparison />
+        <ProjectedReturnSlider />
         <InvestmentComparison />
         <CompanyAdvantage />
         <ReturnCalculator />

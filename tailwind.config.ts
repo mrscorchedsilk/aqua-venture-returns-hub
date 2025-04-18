@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -86,7 +85,7 @@ export default {
 					700: '#0f766e',
 					800: '#115e59',
 					900: '#134e4a',
-				},
+				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -113,14 +112,34 @@ export default {
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' },
+				},
+				"count-up": {
+					"0%": { opacity: "0", transform: "translateY(10px)" },
+					"100%": { opacity: "1", transform: "translateY(0)" }
+				},
+				"section-slide-right": {
+					"0%": { transform: "translateX(-20px)", opacity: "0" },
+					"100%": { transform: "translateX(0)", opacity: "1" }
+				},
+				"section-slide-left": {
+					"0%": { transform: "translateX(20px)", opacity: "0" },
+					"100%": { transform: "translateX(0)", opacity: "1" }
+				},
+				"gentle-pulse": {
+					"0%, 100%": { transform: "scale(1)" },
+					"50%": { transform: "scale(1.05)" }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'float': 'float 4s ease-in-out infinite'
+				'float': 'float 4s ease-in-out infinite',
+				"count-up": "count-up 1.5s ease-out forwards",
+				"section-slide-right": "section-slide-right 0.5s ease-out forwards",
+				"section-slide-left": "section-slide-left 0.5s ease-out forwards",
+				"gentle-pulse": "gentle-pulse 6s ease-in-out infinite"
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [require("tailwindcss-animate")]
 } satisfies Config;
