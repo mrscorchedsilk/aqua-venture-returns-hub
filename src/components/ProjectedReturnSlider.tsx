@@ -6,14 +6,19 @@ import { IndianRupee } from "lucide-react";
 
 const ProjectedReturnSlider = () => {
   const [investment, setInvestment] = useState<number>(32);
-  const annualReturnRate = 0.18; // 18% return rate
+  // The actual ROI is 15% on the OPEX portion (20 lakhs per 32 lakhs invested)
+  const opexPortion = 0.625; // 20L/32L = 62.5% of investment is OPEX
+  const annualReturnRate = 0.15; // 15% guaranteed return on OPEX portion
   
   const handleSliderChange = (value: number[]) => {
     setInvestment(value[0]);
   };
   
   const calculateReturn = (amount: number) => {
-    return amount * annualReturnRate;
+    // Calculate OPEX portion for this investment amount
+    const opexAmount = amount * opexPortion;
+    // Calculate return on OPEX portion
+    return opexAmount * annualReturnRate;
   };
   
   const formatCurrency = (amount: number) => {
@@ -22,6 +27,12 @@ const ProjectedReturnSlider = () => {
       currency: 'INR',
       maximumFractionDigits: 0
     }).format(amount * 100000); // Convert lakhs to rupees
+  };
+
+  const calculateEffectiveReturn = (amount: number) => {
+    const annualReturn = calculateReturn(amount);
+    const effectivePercentage = (annualReturn / amount) * 100;
+    return effectivePercentage.toFixed(2);
   };
 
   return (
@@ -52,7 +63,12 @@ const ProjectedReturnSlider = () => {
               {formatCurrency(calculateReturn(investment))}
             </span>
           </div>
-          <p className="text-sm text-gray-600 mt-1">Projected Annual Return</p>
+          <p className="text-sm text-gray-600 mt-1">
+            Projected Annual Return (~{calculateEffectiveReturn(investment)}% effective ROI)
+          </p>
+          <p className="text-xs text-gray-500 mt-1">
+            Based on 15% return on operational expenditure
+          </p>
         </div>
       </CardContent>
     </Card>

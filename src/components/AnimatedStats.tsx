@@ -57,9 +57,10 @@ const AnimatedStats = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto my-16">
       <AnimatedStat 
-        label="Target Annual Return" 
-        value={20} 
+        label="Guaranteed Annual Return" 
+        value={15} 
         suffix="%" 
+        label2="on operational expenditure" 
       />
       <AnimatedStat 
         label="Minimum Investment" 

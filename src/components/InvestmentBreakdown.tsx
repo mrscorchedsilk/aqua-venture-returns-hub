@@ -26,7 +26,11 @@ const InvestmentBreakdown = () => {
                 </li>
                 <li className="flex items-start">
                   <span className="text-aqua-500 mr-2">•</span>
-                  <span>₹12 Lakhs CapEx + Marketing (returned to investor at end)</span>
+                  <span>₹10 Lakhs CapEx (pond digging, basic infrastructure)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-aqua-500 mr-2">•</span>
+                  <span>₹2 Lakhs Working Capital (marketing, contingencies)</span>
                 </li>
               </ul>
             </CardContent>
@@ -37,19 +41,23 @@ const InvestmentBreakdown = () => {
               <CardTitle className="text-xl text-aqua-800">Returns & Timeline</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-bold mb-4 text-finance-700">15–20% p.a.</p>
+              <p className="text-3xl font-bold mb-4 text-finance-700">15% p.a.</p>
               <ul className="space-y-2">
                 <li className="flex items-start">
                   <span className="text-aqua-500 mr-2">•</span>
-                  <span>Payout Window: November–January</span>
+                  <span>First Payout: November 2026</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-aqua-500 mr-2">•</span>
-                  <span>Land Lease: 10 years (Government land in Taleb Baghel)</span>
+                  <span>Annual Payout Window: November-January</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-aqua-500 mr-2">•</span>
-                  <span>Contract-backed operational involvement with audited reports</span>
+                  <span>Land Lease: 7-10 years (Government land in Taleb Baghel)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-aqua-500 mr-2">•</span>
+                  <span>Full principal returned at end of fund term</span>
                 </li>
               </ul>
             </CardContent>
@@ -64,30 +72,30 @@ const InvestmentBreakdown = () => {
               <div className="space-y-4">
                 <div className="relative pl-8 before:absolute before:left-3 before:top-3 before:w-px before:h-full before:bg-aqua-400">
                   <div className="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-aqua-500 text-white">
-                    Q1
+                    1
                   </div>
-                  <p>₹10 Lakhs - Initial investment to secure pond preparation</p>
+                  <p>₹12 Lakhs - Initial investment</p>
                 </div>
                 
                 <div className="relative pl-8 before:absolute before:left-3 before:top-3 before:w-px before:h-full before:bg-aqua-400">
                   <div className="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-aqua-500 text-white">
-                    Q2
+                    2
                   </div>
-                  <p>₹5 Lakhs - Feed and operational expenses</p>
+                  <p>₹5 Lakhs - Second tranche</p>
                 </div>
                 
                 <div className="relative pl-8 before:absolute before:left-3 before:top-3 before:w-px before:h-full before:bg-aqua-400">
                   <div className="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-aqua-500 text-white">
-                    Q3
+                    3
                   </div>
-                  <p>₹5 Lakhs - Continued operations and marketing</p>
+                  <p>₹5 Lakhs - Third tranche</p>
                 </div>
                 
                 <div className="relative pl-8">
                   <div className="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-aqua-500 text-white">
-                    Q4
+                    4
                   </div>
-                  <p>₹10 Lakhs - Harvest preparation and market positioning</p>
+                  <p>₹10 Lakhs - Final tranche</p>
                 </div>
               </div>
             </CardContent>
@@ -119,15 +127,15 @@ const InvestmentBreakdown = () => {
             <ArrowDown className="text-aqua-500" size={36} />
             
             <div className="text-center max-w-lg">
-              <p className="text-lg font-medium text-gray-800">Annual Returns (15-20%)</p>
-              <p className="text-gray-600">Distributed during Nov-Jan window with full financial transparency</p>
+              <p className="text-lg font-medium text-gray-800">Annual Returns (15%)</p>
+              <p className="text-gray-600">First returns in November 2026, distributed during Nov-Jan window</p>
             </div>
             
             <ArrowDown className="text-aqua-500" size={36} />
             
             <div className="text-center max-w-lg">
               <p className="text-lg font-medium text-gray-800">Capital Return</p>
-              <p className="text-gray-600">₹12 Lakhs CapEx returned at end of investment cycle</p>
+              <p className="text-gray-600">Full principal returned at end of investment cycle (7-10 years)</p>
             </div>
           </div>
         </div>

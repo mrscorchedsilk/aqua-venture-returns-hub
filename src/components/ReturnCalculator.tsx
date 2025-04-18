@@ -20,7 +20,10 @@ const ReturnCalculator = () => {
   const [calculatedReturns, setCalculatedReturns] = useState({
     annualReturn: 0,
     totalReturn: 0,
-    capexReturn: 0,
+    opexPortion: 0,
+    capexPortion: 0,
+    workingCapitalPortion: 0,
+    effectiveROI: 0,
   });
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,16 +48,27 @@ const ReturnCalculator = () => {
       return;
     }
     
-    // Calculate returns (simple example)
+    // Calculate returns based on the provided investment structure
     const investmentAmount = parseFloat(formData.investment) * 100000; // Convert lakhs to rupees
-    const annualReturnRate = 0.18; // 18% average return
-    const annualReturn = investmentAmount * annualReturnRate;
-    const capexPortion = investmentAmount * 0.375; // 37.5% of investment is CapEx (₹12L of ₹32L)
+    
+    // Calculate the OPEX, CAPEX, and Working Capital portions
+    const opexPortion = (investmentAmount * 0.625); // 62.5% of investment (20L of 32L)
+    const capexPortion = (investmentAmount * 0.3125); // 31.25% of investment (10L of 32L)
+    const workingCapitalPortion = (investmentAmount * 0.0625); // 6.25% of investment (2L of 32L)
+    
+    // Calculate annual return (15% on OPEX portion)
+    const annualReturn = opexPortion * 0.15;
+    
+    // Calculate effective ROI on total investment
+    const effectiveROI = (annualReturn / investmentAmount) * 100;
     
     setCalculatedReturns({
       annualReturn: annualReturn,
       totalReturn: annualReturn,
-      capexReturn: capexPortion,
+      opexPortion: opexPortion,
+      capexPortion: capexPortion,
+      workingCapitalPortion: workingCapitalPortion,
+      effectiveROI: effectiveROI,
     });
     
     // Show results
@@ -184,23 +198,38 @@ const ReturnCalculator = () => {
                     <p className="text-gray-600">Based on {formatCurrency(parseFloat(formData.investment) * 100000)} investment</p>
                   </div>
                   
-                  <div className="grid gap-6 md:grid-cols-3">
+                  <div className="grid gap-6 md:grid-cols-2">
                     <div className="bg-white p-4 rounded-lg border border-gray-200 text-center">
                       <h4 className="text-sm font-medium text-gray-500 mb-1">Annual Return</h4>
                       <p className="text-2xl font-bold text-finance-700">{formatCurrency(calculatedReturns.annualReturn)}</p>
-                      <p className="text-xs text-gray-500 mt-1">15-20% per annum</p>
+                      <p className="text-xs text-gray-500 mt-1">15% on operational expenditure</p>
+                      <p className="text-xs text-gray-500 mt-1">({calculatedReturns.effectiveROI.toFixed(2)}% effective ROI)</p>
                     </div>
                     
                     <div className="bg-white p-4 rounded-lg border border-gray-200 text-center">
-                      <h4 className="text-sm font-medium text-gray-500 mb-1">Capital Return</h4>
-                      <p className="text-2xl font-bold text-finance-700">{formatCurrency(calculatedReturns.capexReturn)}</p>
-                      <p className="text-xs text-gray-500 mt-1">At end of investment cycle</p>
+                      <h4 className="text-sm font-medium text-gray-500 mb-1">First Payout</h4>
+                      <p className="text-2xl font-bold text-finance-700">Nov, 2026</p>
+                      <p className="text-xs text-gray-500 mt-1">Annual distribution (Nov-Jan)</p>
+                    </div>
+                  </div>
+                  
+                  <div className="grid gap-6 md:grid-cols-3">
+                    <div className="bg-white p-4 rounded-lg border border-gray-200 text-center">
+                      <h4 className="text-sm font-medium text-gray-500 mb-1">OPEX Portion</h4>
+                      <p className="text-lg font-bold text-finance-700">{formatCurrency(calculatedReturns.opexPortion)}</p>
+                      <p className="text-xs text-gray-500 mt-1">62.5% of investment</p>
                     </div>
                     
                     <div className="bg-white p-4 rounded-lg border border-gray-200 text-center">
-                      <h4 className="text-sm font-medium text-gray-500 mb-1">Payout Window</h4>
-                      <p className="text-2xl font-bold text-finance-700">Nov-Jan</p>
-                      <p className="text-xs text-gray-500 mt-1">Annual distribution</p>
+                      <h4 className="text-sm font-medium text-gray-500 mb-1">CAPEX Portion</h4>
+                      <p className="text-lg font-bold text-finance-700">{formatCurrency(calculatedReturns.capexPortion)}</p>
+                      <p className="text-xs text-gray-500 mt-1">31.25% of investment</p>
+                    </div>
+                    
+                    <div className="bg-white p-4 rounded-lg border border-gray-200 text-center">
+                      <h4 className="text-sm font-medium text-gray-500 mb-1">Working Capital</h4>
+                      <p className="text-lg font-bold text-finance-700">{formatCurrency(calculatedReturns.workingCapitalPortion)}</p>
+                      <p className="text-xs text-gray-500 mt-1">6.25% of investment</p>
                     </div>
                   </div>
                   
@@ -209,19 +238,23 @@ const ReturnCalculator = () => {
                     <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start">
                         <span className="text-aqua-500 mr-2">•</span>
-                        <span>Returns calculated at 18% annual rate (actual range: 15-20%)</span>
+                        <span>15% annual return on operational expenditure (OPEX)</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-aqua-500 mr-2">•</span>
-                        <span>₹{(parseFloat(formData.investment) * 0.375).toFixed(2)} Lakhs CapEx returned at end of cycle</span>
+                        <span>Full principal returned at the end of the fund term (7-10 years)</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-aqua-500 mr-2">•</span>
-                        <span>Investment tranches spread across 4 quarters</span>
+                        <span>Investment paid in four tranches (₹12L, ₹5L, ₹5L, ₹10L)</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-aqua-500 mr-2">•</span>
-                        <span>Returns paid during Nov-Jan harvest window</span>
+                        <span>First returns paid in November 2026</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-aqua-500 mr-2">•</span>
+                        <span>Potential upside for investments over ₹50 Lakhs</span>
                       </li>
                     </ul>
                   </div>
