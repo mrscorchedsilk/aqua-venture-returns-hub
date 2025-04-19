@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Factory, TrendingUp, Users, LineChart, ClipboardCheck, BarChart3 } from "lucide-react";
@@ -6,7 +7,7 @@ const CompanyAdvantage = () => {
   return (
     <section id="about" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="section-title mb-4 font-allenoire">What Sets RR Aqua Ventures Apart</h2>
+        <h2 className="section-title mb-4">What Sets RR Aqua Ventures Apart</h2>
         <p className="text-gray-600 max-w-3xl mb-12">
           Our competitive advantages ensure optimal returns while managing risk through operational excellence and strategic market positioning.
         </p>
@@ -86,7 +87,7 @@ const CompanyAdvantage = () => {
         </div>
         
         <div className="bg-white rounded-xl shadow-lg p-8">
-          <h3 className="text-2xl font-bold text-center text-aqua-800 mb-8 font-glitten-caps">Management Team</h3>
+          <h3 className="text-2xl font-bold text-center text-aqua-800 mb-8">Management Team</h3>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-4 overflow-hidden">
