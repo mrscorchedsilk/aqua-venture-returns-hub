@@ -21,6 +21,7 @@ export default {
 			fontFamily: {
         'glitten': ['Glitten', 'sans-serif'],
         'glitten-caps': ['Glitten All Caps', 'sans-serif'],
+        'allenoire': ['Allenoire', 'sans-serif'],
       },
 			colors: {
 				border: 'hsl(var(--border))',
