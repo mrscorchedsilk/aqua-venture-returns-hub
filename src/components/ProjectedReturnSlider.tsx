@@ -1,8 +1,7 @@
-
-import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
 import { IndianRupee } from "lucide-react";
+import React, { useState } from 'react';
 
 const ProjectedReturnSlider = () => {
   const [investment, setInvestment] = useState<number>(32);
@@ -42,7 +41,12 @@ const ProjectedReturnSlider = () => {
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="space-y-2">
-          <label className="text-sm font-medium">Investment Amount (₹ in Lakhs)</label>
+          <div className="flex justify-between items-center">
+            <label className="text-sm font-medium">Investment Amount (₹ in Lakhs)</label>
+            <span className="text-sm font-semibold bg-finance-100 px-2 py-1 rounded-md">
+              ₹{investment}L
+            </span>
+          </div>
           <Slider
             defaultValue={[32]}
             min={32}

@@ -102,11 +102,12 @@ const InvestmentBreakdown = () => {
           </Card>
         </div>
         
-        <InvestmentFlowChart />
+        {/* <InvestmentFlowChart /> */}
         
         <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 border border-gray-100">
-          <h3 className="text-2xl font-bold text-center text-aqua-800 mb-6">Investment Flow</h3>
-          <div className="flex flex-col items-center space-y-6">
+          <h3 className="text-3xl font-bold text-center text-aqua-800 mb-6">Investment Flow</h3>
+          <InvestmentFlowChart />
+          {/* <div className="flex flex-col items-center space-y-6">
             <div className="text-center max-w-lg">
               <p className="text-lg font-medium text-gray-800">Initial Capital Investment</p>
               <p className="text-gray-600">Structured tranches to optimize cash flow and maximize returns</p>
@@ -139,7 +140,7 @@ const InvestmentBreakdown = () => {
               <p className="text-lg font-medium text-gray-800">Capital Return</p>
               <p className="text-gray-600">Full principal returned at end of investment cycle (7-10 years)</p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

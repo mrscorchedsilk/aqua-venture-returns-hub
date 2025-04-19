@@ -1,9 +1,8 @@
-
-import React, { useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, Tooltip, ReferenceLine, ReferenceArea, ResponsiveContainer } from 'recharts';
 import { Button } from "@/components/ui/button";
-import { Download, PlayCircle, PauseCircle } from "lucide-react";
 import { ChartContainer } from "@/components/ui/chart";
+import { Download } from "lucide-react";
+import React, { useState } from 'react';
+import { Line, LineChart, ReferenceArea, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 interface DataPoint {
   month: string;
@@ -26,7 +25,6 @@ const data: DataPoint[] = [
 ];
 
 const InvestmentFlowChart = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
   const [showDownload, setShowDownload] = useState(false);
   const [activePhase, setActivePhase] = useState<string | null>(null);
 
@@ -46,31 +44,9 @@ const InvestmentFlowChart = () => {
     setActivePhase(null);
   };
 
-  const toggleAnimation = () => {
-    setIsPlaying(!isPlaying);
-  };
-
   return (
     <div className="relative w-full max-w-4xl mx-auto mt-8">
       <div className="absolute top-4 right-4 flex gap-2 z-10">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={toggleAnimation}
-          className="gap-2"
-        >
-          {isPlaying ? (
-            <>
-              <PauseCircle className="h-4 w-4" />
-              Pause
-            </>
-          ) : (
-            <>
-              <PlayCircle className="h-4 w-4" />
-              Play
-            </>
-          )}
-        </Button>
         {showDownload && (
           <Button
             variant="default"
@@ -84,10 +60,10 @@ const InvestmentFlowChart = () => {
       </div>
 
       <ChartContainer
-        className="h-[400px] w-full"
+        className="h-[600px] w-full"
         config={config}
       >
-        <LineChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+        <LineChart data={data} margin={{ top: 60, right: 30, left: 20, bottom: 5 }}>
           <XAxis
             dataKey="month"
             tick={{ fill: '#6b7280' }}
@@ -133,7 +109,8 @@ const InvestmentFlowChart = () => {
                   label={{
                     value: point.annotation,
                     position: 'top',
-                    fill: config[point.phase as keyof typeof config].color
+                    fill: config[point.phase as keyof typeof config].color,
+                    offset: 15 // Add offset to create gap between text and line
                   }}
                 />
               );
