@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Download, Phone } from "lucide-react";
@@ -22,7 +21,7 @@ const HeroSection = () => {
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl text-white">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 animate-section-slide-right">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 animate-section-slide-right font-glitten-caps">
             Secure 15–20% Returns from Aquaculture
           </h1>
           <p className="text-xl md:text-2xl opacity-90 mb-8 animate-section-slide-left delay-200">

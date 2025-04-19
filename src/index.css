@@ -1,9 +1,22 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Glitten';
+  src: url('/public/fonts/Glitten-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Glitten All Caps';
+  src: url('/public/fonts/GLITTEN_ALL_CAPS.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
 
 @layer base {
   :root {
