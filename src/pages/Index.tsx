@@ -3,6 +3,7 @@ import React from 'react';
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AnimatedStats from "@/components/AnimatedStats";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import InvestmentBreakdown from "@/components/InvestmentBreakdown";
 import LocationAdvantage from "@/components/LocationAdvantage";
 import FishComparison from "@/components/FishComparison";
@@ -22,6 +23,7 @@ const Index = () => {
       <main>
         <HeroSection />
         <AnimatedStats />
+        <WhyChooseUs />
         <InvestmentBreakdown />
         <LocationAdvantage />
         <FishComparison />
