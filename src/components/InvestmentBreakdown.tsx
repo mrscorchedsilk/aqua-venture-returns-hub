@@ -1,7 +1,9 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowDown } from "lucide-react";
+import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowDown, Fish } from "lucide-react";
 import InvestmentFlowChart from './InvestmentFlowChart';
+import GlowingCard from './GlowingCard';
+import { motion } from "framer-motion";
 
 const InvestmentBreakdown = () => {
   return (
@@ -13,9 +15,12 @@ const InvestmentBreakdown = () => {
         </p>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          <Card className="shadow-lg border-t-4 border-t-aqua-500">
+          <GlowingCard className="border-t-4 border-t-aqua-500" glowColor="#0ea5e9">
             <CardHeader>
-              <CardTitle className="text-xl text-aqua-800">Minimum Investment</CardTitle>
+              <CardTitle className="text-xl text-aqua-800 flex items-center gap-2">
+                <Fish className="h-5 w-5" />
+                Minimum Investment
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-3xl font-bold mb-4 text-finance-700">₹32 Lakhs</p>
@@ -34,11 +39,14 @@ const InvestmentBreakdown = () => {
                 </li>
               </ul>
             </CardContent>
-          </Card>
+          </GlowingCard>
           
-          <Card className="shadow-lg border-t-4 border-t-aqua-500">
+          <GlowingCard className="border-t-4 border-t-aqua-500" glowColor="#0ea5e9">
             <CardHeader>
-              <CardTitle className="text-xl text-aqua-800">Returns & Timeline</CardTitle>
+              <CardTitle className="text-xl text-aqua-800 flex items-center gap-2">
+                <Fish className="h-5 w-5" />
+                Returns & Timeline
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-3xl font-bold mb-4 text-finance-700">15% p.a.</p>
@@ -61,11 +69,14 @@ const InvestmentBreakdown = () => {
                 </li>
               </ul>
             </CardContent>
-          </Card>
+          </GlowingCard>
           
-          <Card className="shadow-lg border-t-4 border-t-aqua-500 md:col-span-2 lg:col-span-1">
+          <GlowingCard className="border-t-4 border-t-aqua-500 md:col-span-2 lg:col-span-1" glowColor="#0ea5e9">
             <CardHeader>
-              <CardTitle className="text-xl text-aqua-800">Investment Tranches</CardTitle>
+              <CardTitle className="text-xl text-aqua-800 flex items-center gap-2">
+                <Fish className="h-5 w-5" />
+                Investment Tranches
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-3xl font-bold mb-4 text-finance-700">Structured Approach</p>
@@ -99,49 +110,13 @@ const InvestmentBreakdown = () => {
                 </div>
               </div>
             </CardContent>
-          </Card>
+          </GlowingCard>
         </div>
         
-        {/* <InvestmentFlowChart /> */}
-        
-        <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+        <GlowingCard className="p-8" glowColor="#0f766e">
           <h3 className="text-3xl font-bold text-center text-aqua-800 mb-6">Investment Flow</h3>
           <InvestmentFlowChart />
-          {/* <div className="flex flex-col items-center space-y-6">
-            <div className="text-center max-w-lg">
-              <p className="text-lg font-medium text-gray-800">Initial Capital Investment</p>
-              <p className="text-gray-600">Structured tranches to optimize cash flow and maximize returns</p>
-            </div>
-            
-            <ArrowDown className="text-aqua-500" size={36} />
-            
-            <div className="text-center max-w-lg">
-              <p className="text-lg font-medium text-gray-800">Operational Excellence</p>
-              <p className="text-gray-600">Scientific farming with in-house feed production and expert management</p>
-            </div>
-            
-            <ArrowDown className="text-aqua-500" size={36} />
-            
-            <div className="text-center max-w-lg">
-              <p className="text-lg font-medium text-gray-800">Premium Market Access</p>
-              <p className="text-gray-600">Direct sales to live fish markets at premium pricing</p>
-            </div>
-            
-            <ArrowDown className="text-aqua-500" size={36} />
-            
-            <div className="text-center max-w-lg">
-              <p className="text-lg font-medium text-gray-800">Annual Returns (15%)</p>
-              <p className="text-gray-600">First returns in November 2026, distributed during Nov-Jan window</p>
-            </div>
-            
-            <ArrowDown className="text-aqua-500" size={36} />
-            
-            <div className="text-center max-w-lg">
-              <p className="text-lg font-medium text-gray-800">Capital Return</p>
-              <p className="text-gray-600">Full principal returned at end of investment cycle (7-10 years)</p>
-            </div>
-          </div> */}
-        </div>
+        </GlowingCard>
       </div>
     </section>
   );

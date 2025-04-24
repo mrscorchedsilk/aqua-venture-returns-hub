@@ -1,7 +1,8 @@
-
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, XCircle, AlertCircle } from "lucide-react";
+import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CheckCircle, XCircle, AlertCircle, Fish } from "lucide-react";
+import GlowingCard from './GlowingCard';
+import { motion } from "framer-motion";
 
 const FishComparison = () => {
   return (
@@ -13,10 +14,13 @@ const FishComparison = () => {
         </p>
         
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          <Card className="shadow-lg border-t-4 border-t-aqua-600">
+          <GlowingCard className="border-t-4 border-t-aqua-600" glowColor="#0ea5e9">
             <CardHeader className="pb-2">
               <CardTitle className="flex justify-between items-center">
-                <span>IMC</span>
+                <span className="flex items-center gap-2">
+                  <Fish className="h-5 w-5 text-aqua-600" />
+                  IMC
+                </span>
                 <span className="text-sm bg-green-100 text-green-800 py-1 px-3 rounded-full">Recommended</span>
               </CardTitle>
             </CardHeader>
@@ -54,7 +58,7 @@ const FishComparison = () => {
                 </p>
               </div>
             </CardContent>
-          </Card>
+          </GlowingCard>
           
           <Card className="shadow-lg">
             <CardHeader className="pb-2">
@@ -137,7 +141,7 @@ const FishComparison = () => {
           </Card>
         </div>
         
-        <div className="bg-white rounded-xl shadow-lg p-8">
+        <GlowingCard className="p-8" glowColor="#0f766e">
           <h3 className="text-2xl font-bold text-center text-aqua-800 mb-8">IMC Market Advantages</h3>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
@@ -170,7 +174,7 @@ const FishComparison = () => {
               </p>
             </div>
           </div>
-        </div>
+        </GlowingCard>
       </div>
     </section>
   );
