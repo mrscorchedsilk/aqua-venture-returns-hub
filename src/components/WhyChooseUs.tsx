@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const WhyChooseUs = () => {
@@ -22,11 +21,11 @@ const WhyChooseUs = () => {
             </p>
           </div>
           
-          <div className="relative rounded-lg overflow-hidden shadow-xl">
+          <div className="relative rounded-lg overflow-hidden shadow-xl flex justify-center">
             <img 
               src="/lovable-uploads/fdb2770c-3389-4318-bfbb-5beeced66d8d.png"
               alt="Rajnish Kumar - RR Aqua Ventures Founder"
-              className="object-cover object-center w-full h-full"
+              className="object-cover object-center w-full h-auto max-w-xs md:max-w-sm"
             />
           </div>
         </div>
