@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, XCircle, AlertCircle, Fish } from "lucide-react";
 import GlowingCard from './GlowingCard';
 import { motion } from "framer-motion";
