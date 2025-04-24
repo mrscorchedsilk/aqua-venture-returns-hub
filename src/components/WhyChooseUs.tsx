@@ -24,7 +24,7 @@ const WhyChooseUs = () => {
           
           <div className="relative rounded-lg overflow-hidden shadow-xl">
             <img 
-              src="/lovable-uploads/3ac170d7-d03a-4207-ab90-d1169964dae7.png"
+              src="/lovable-uploads/fdb2770c-3389-4318-bfbb-5beeced66d8d.png"
               alt="Rajnish Kumar - RR Aqua Ventures Founder"
               className="object-cover object-center w-full h-full"
             />
