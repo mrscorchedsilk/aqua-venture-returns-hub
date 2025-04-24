@@ -24,7 +24,7 @@ const WhyChooseUs = () => {
           
           <div className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-xl">
             <img 
-              src="/lovable-uploads/e3c3e092-be5f-4aa7-8ebb-580ad59675d9.png"
+              src="/lovable-uploads/bc15b365-2319-4685-a02b-23a21845cea1.png"
               alt="Rajnish Kumar - RR Aqua Ventures Founder"
               className="object-cover object-center w-full h-full"
             />
